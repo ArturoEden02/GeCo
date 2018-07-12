@@ -1,0 +1,82 @@
+﻿<Window x:Class="LookAndFeel.MainWindow"
+       Height="305.089" Width="548.245"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Generico" 
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        AllowDrop="True"
+        TextOptions.TextRenderingMode="Auto" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen"
+        xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Indigo.Named.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#0287D0"/>
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#004790"/>
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#004790"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF"/>
+            <!-- accent -->
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#004790"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF"/>
+
+
+
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+                <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
+
+            <!-- data template used for the dialogs example, defines a View for a ViewModel of type DateTime  -->
+
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <Border CornerRadius="0,0,10,10" Margin="0,0,0,10" Background="White">
+
+        <materialDesign:DialogHost  Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+
+                <DockPanel >
+                    <materialDesign:ColorZone x:Name="header" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top" Height="36"   >
+                        <DockPanel Margin="0,-15,-15,-12">
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="0,5,0,0">¡Base!</TextBlock>
+                            <Grid>
+                            </Grid>
+
+                        </DockPanel>
+                    </materialDesign:ColorZone>
+                    <Grid>
+                        <Label Name="lblStatus" Content="Procesando" Height="25" VerticalAlignment="Top" Margin="10,69,181,0" Foreground="#FF363535"/>
+                        <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Presione para iniciar la operación" Name="btnIniciar" Margin="18,21,173,190" Height="Auto">
+                            Validacion Citas Comex
+                        </Button>
+                        <TextBox TabIndex="0" x:Name="txtProovedor" AllowDrop="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="14" ToolTip="Proovedor"  materialDesign:HintAssist.Hint="Proovedor"  Margin="309,0,20,77" VerticalAlignment="Bottom" Height="46" RenderTransformOrigin="0.5,0.5" />
+
+                    </Grid>
+
+                </DockPanel>
+            </materialDesign:DrawerHost>
+
+        </materialDesign:DialogHost>
+    </Border>
+
+</Window>
+
+
