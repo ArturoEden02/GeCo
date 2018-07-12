@@ -76,7 +76,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Button Command="{Binding CDF}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}"  MouseEnter="imgCDF_MouseEnter" MouseLeave="imgCDF_MouseLeave" >
+                        <Button Command="{Binding CDF}" BorderThickness="0" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}"  MouseEnter="imgCDF_MouseEnter" MouseLeave="imgCDF_MouseLeave" ToolTip="Portal Financiero de CEF">
                             <Border BorderBrush="Black" x:Name="xp2" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <!--<MediaElement LoadedBehavior="Play" Source="/LookAndFeel;component/Gif/CDF.gif" />-->
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/CDF.jpg" Margin="0,0" x:Name="imgCDF" MouseEnter="imgCDF_MouseEnter" MouseLeave="imgCDF_MouseLeave"  />
@@ -85,7 +85,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Chedraui}"  BorderThickness="0" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Chedraui}"  BorderThickness="0" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Chedraui">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Chedraui.jpg" Margin="0" x:Name="imgChedraui"  MouseEnter="imgChedraui_MouseEnter" MouseLeave="imgChedraui_MouseLeave" />
                                 <Border.BitmapEffect>
@@ -93,7 +93,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Fragua}"  BorderThickness="0" Grid.Row="2" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Fragua}"  BorderThickness="0" Grid.Row="2" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Fragua">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Fragua.jpg" Margin="0" x:Name="Fragua"  MouseEnter="Fragua_MouseEnter" MouseLeave="Fragua_MouseLeave"/>
                                 <Border.BitmapEffect>
@@ -101,7 +101,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Fresko}"  BorderThickness="0" Grid.Row="0" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Fresko}"  BorderThickness="0" Grid.Row="0" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Fresko">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Fresko.jpg" Margin="0" x:Name="ImgFresko"  MouseEnter="ImgFresko_MouseEnter" MouseLeave="ImgFresko_MouseLeave"/>
                                 <Border.BitmapEffect>
@@ -109,7 +109,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding HEB}"  BorderThickness="0" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding HEB}"  BorderThickness="0" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de HEB">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Heb.jpg" Margin="0" x:Name="imgHeb"  MouseEnter="imgHeb_MouseEnter" MouseLeave="imgHeb_MouseLeave"/>
                                 <Border.BitmapEffect>
@@ -117,7 +117,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Oxxo}"  BorderThickness="0" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Oxxo}"  BorderThickness="0" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Oxxo">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Oxxo.jpg" Margin="0" x:Name="oxxo"  MouseEnter="oxxo_MouseEnter" MouseLeave="oxxo_MouseLeave"/>
                                 <Border.BitmapEffect>
@@ -125,7 +125,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding ComeXSoriana}"  BorderThickness="0" Grid.Row="0" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding ComeXSoriana}"  BorderThickness="0" Grid.Row="0" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Soriana">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Soriana.jpg" Margin="0" x:Name="Soriana"  MouseEnter="Soriana_MouseEnter" MouseLeave="Soriana_MouseLeave"/>
                                 <Border.BitmapEffect>
@@ -133,7 +133,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Walmart}"  BorderThickness="0" Grid.Row="1" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Walmart}"  BorderThickness="0" Grid.Row="1" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Walmart">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Wallmart.jpg" Margin="0" x:Name="Walmart"  MouseEnter="Walmart_MouseEnter" MouseLeave="Walmart_MouseLeave" />
                                 <Border.BitmapEffect>
@@ -141,7 +141,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Costco}"  BorderThickness="0" Grid.Row="2" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Costco}"  BorderThickness="0" Grid.Row="2" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Costco">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Costco.png" x:Name="Costco" Margin="0" MouseEnter="Costco_MouseEnter" MouseLeave="Costco_MouseLeave" />
                                 <Border.BitmapEffect>
@@ -149,7 +149,7 @@
                                 </Border.BitmapEffect>
                             </Border>
                         </Button>
-                        <Button Command="{Binding Comex}"  BorderThickness="0" Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" >
+                        <Button Command="{Binding Comex}"  BorderThickness="0" Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Comex">
                             <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Center" >
                                 <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/Comex.png" Margin="0" x:Name="Comex"  MouseEnter="Comex_MouseEnter" MouseLeave="Comex_MouseLeave" />
                                 <Border.BitmapEffect>

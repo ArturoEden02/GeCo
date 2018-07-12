@@ -243,10 +243,12 @@
             //jugos.subirArchivo(appExcel, bookExcel, "CEF", "EstadoCuenta");
 
             bookExcel.Save();
-
-            if (!Directory.Exists(rutaEscritorio + @"NuJDV\docs\CEF\")) Directory.CreateDirectory(rutaEscritorio + @"NuJDV\docs\CEF\");
-            driver.Close();
-            driver.Quit();
+            try
+            {
+                driver.Close();
+                driver.Quit();
+            }
+            catch { }
 
             return taMuyBien;
         }

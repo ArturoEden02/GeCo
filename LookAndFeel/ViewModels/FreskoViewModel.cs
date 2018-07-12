@@ -119,7 +119,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Fresko Proceso = new Pruebas_clase7.Clases.Fresko();
-            Proceso.FuncionPrincipal(usuario, contrasenia,FechaI.ToString(),FechaF.ToString());
+            try
+            {
+                Proceso.FuncionPrincipal(usuario, contrasenia, FechaI.ToString(), FechaF.ToString());
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

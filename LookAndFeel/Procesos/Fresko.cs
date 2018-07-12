@@ -162,8 +162,12 @@
             HojaExcel.Columns.EntireRow.AutoFit();
             if (!Directory.Exists(rutaEscritorio)) Directory.CreateDirectory(rutaEscritorio);
             ArchivoTrabajoExcel.SaveAs(rutaEscritorio + "Fresko Estado de Cuenta " + nombreAleatorio() + ".xlsx");
-            driver.Close();
-            driver.Quit();
+            try
+            {
+                driver.Close();
+                driver.Quit();
+            }
+            catch { }
             exito = true;
             return exito;
         }

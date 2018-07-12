@@ -119,7 +119,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Fragua Proceso = new Pruebas_clase7.Clases.Fragua();
-            Proceso.funcionPrincipal(usuario, contrasenia);
+            try
+            {
+                Proceso.funcionPrincipal(usuario, contrasenia);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

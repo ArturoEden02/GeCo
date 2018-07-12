@@ -63,8 +63,12 @@
                 }
                 loslInks = numStrac.Split('\n');
                 ObtenerRelacion(loslInks, usuario, contraseña);
-                driver.Close();
-                driver.Quit();
+                try
+                {
+                    driver.Close();
+                    driver.Quit();
+                }
+                catch { }
                 string nombre = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Archivos Generados\";
                 if (!Directory.Exists(nombre)) Directory.CreateDirectory(nombre);
                 nombre += "Estado de Cuenta Costco " + nombreAleatorio() + ".xlsx";
@@ -99,15 +103,15 @@
                     driver.FindElement(By.Id("usuario")).SendKeys(usuario);
                     driver.FindElement(By.Id("clave")).Clear();
                     driver.FindElement(By.Id("clave")).SendKeys(contraseña);
-                    
+
                     WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                     IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("btnEnviar")));
                     element.Click();
-                    
+
                     wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                     element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(xpath1)));
                     element.Click();
-                    
+
                     wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                     element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//div[3]/div/nav/ul/li[2]/a/span")));
                     element.Click();

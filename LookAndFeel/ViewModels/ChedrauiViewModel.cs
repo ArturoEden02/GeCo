@@ -13,7 +13,7 @@ namespace LookAndFeel.ViewModels
 {
     class ChedrauiViewModel
     {
-        
+
         Credenciales creden;
         conds condb = new conds();
 
@@ -120,7 +120,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Chedraui Proceso = new Pruebas_clase7.Clases.Chedraui();
-            Proceso.FuncionPrincipal(usuario, contrasenia,FechaI,FechaF);
+            try
+            {
+                Proceso.FuncionPrincipal(usuario, contrasenia, FechaI, FechaF);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

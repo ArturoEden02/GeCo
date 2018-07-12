@@ -94,7 +94,7 @@ namespace LookAndFeel.ViewModels
                     condb.ds.Tables[Tabla].Rows[0][1] = creden.Contrasenia;
                     condb.SetInfo();
                     Save = true;
-                    MessageBox.Show("La información se guardo correctamente","AVISO",MessageBoxButton.OK,MessageBoxImage.Information);
+                    MessageBox.Show("La información se guardo correctamente", "AVISO", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (System.Exception ex) { Save = false; }
             }
@@ -120,7 +120,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Walmart Proceso = new Pruebas_clase7.Clases.Walmart();
-            Proceso.FuncionPrincipal(usuario, contrasenia);
+            try
+            {
+                Proceso.FuncionPrincipal(usuario, contrasenia);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

@@ -228,8 +228,12 @@
                         Thread.Sleep(500);
                     }
                 } while (bandera != false);
-                driver.Close();
-                driver.Quit();
+                try
+                {
+                    driver.Close();
+                    driver.Quit();
+                }
+                catch { }
                 if (rutaArchivoSaldo.Length > 0 && rutaArchivoRetenidos.Length > 0 & rutaArchivoHistorico.Length > 0)
                 {
                     consolidarArchivos(rutaArchivoSaldo[0], rutaArchivoRetenidos[0], rutaArchivoHistorico[0]);

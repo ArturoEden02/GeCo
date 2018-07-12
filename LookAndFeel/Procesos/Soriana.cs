@@ -149,8 +149,12 @@
                 Rango.EntireRow.Font.Bold = true;
                 Diferencias(link, driver, HojaExcel);
                 HojaExcel.Columns.EntireColumn.AutoFit();
-                driver.Close();
-                driver.Quit();
+                try
+                {
+                    driver.Close();
+                    driver.Quit();
+                }
+                catch { }
                 string nombre = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Archivos Generados\";
                 if (!Directory.Exists(nombre)) Directory.CreateDirectory(nombre);
                 nombre += "Estado de Cuenta Soriana " + nombreAleatorio() + ".xlsx";

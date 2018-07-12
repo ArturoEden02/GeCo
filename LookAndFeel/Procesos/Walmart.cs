@@ -47,8 +47,12 @@
             IWebElement combo = driver.FindElement(By.Id("ddlDepVend"));
             List<string> opciones = obtenerOpciones(combo);
             ArmarEstado(opciones, driver);
-            driver.Close();
-            driver.Quit();
+            try
+            {
+                driver.Close();
+                driver.Quit();
+            }
+            catch { }
         }
 
         private String nombreAleatorio()

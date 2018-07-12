@@ -119,7 +119,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Oxxo Proceso = new Pruebas_clase7.Clases.Oxxo();
-            Proceso.FuncionPrincipal(usuario, contrasenia,FechaI,FechaF);
+            try
+            {
+                Proceso.FuncionPrincipal(usuario, contrasenia, FechaI, FechaF);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

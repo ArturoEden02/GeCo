@@ -167,8 +167,6 @@
             }
             else
             {
-                driver.Close();
-                MiExcel.Quit();
                 MessageBox.Show("No se encontraron resultados con los parámetros de búsqueda");
                 return false;
             }
@@ -176,6 +174,12 @@
             if (!Directory.Exists(nombre)) Directory.CreateDirectory(nombre);
             nombre += "Estado de Cuenta Comex " + nombreAleatorio() + ".xlsx";
             ArchivoTrabajoExcel.SaveAs(nombre);
+            try
+            {
+                driver.Close();
+                MiExcel.Quit();
+            }
+            catch { }
             return exito;
         }
 
@@ -323,6 +327,7 @@
                 HojaExcel.Cells[i, 1] = recibo;
             }
             driver.FindElement(By.XPath("//*[@id=\"GeneraReporteFrm\"]/table/tbody/tr[1]/td/table/tbody/tr/td[3]")).Click();
+            Thread.Sleep(1500);
         }
 
         private int ultimoRenglon(Excel.Worksheet hoja, string columna)

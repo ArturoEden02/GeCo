@@ -119,7 +119,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.Costco Proceso = new Pruebas_clase7.Clases.Costco();
-            Proceso.FuncionPrincipal(usuario, contrasenia);
+            try
+            {
+                Proceso.FuncionPrincipal(usuario, contrasenia);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 

@@ -116,8 +116,12 @@
                     myProcess.CloseMainWindow();
                 }
                 System.Threading.Thread.Sleep(4000);
-                driver.Close();
-
+                try
+                {
+                    driver.Close();
+                    driver.Quit();
+                }
+                catch { }
                 string RutaCarpeta = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Desktop\NuJDV\docs\OXXO";
                 if (!Directory.Exists(RutaCarpeta)) Directory.CreateDirectory(RutaCarpeta);
                 ANTES = TotalArchivosDownloads(RutaCarpeta);

@@ -62,188 +62,177 @@
             //objNuExcel.InstanciaExcelVisible(MiExcel);
             objNuExcel.ActivarMensajesAlertas(MiExcel, 0);
 
-            try
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddUserProfilePreference("download.default_directory", rutaDescarga);
+            chromeOptions.AddUserProfilePreference("download.prompt_for_download", false);
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            var driverService = ChromeDriverService.CreateDefaultService();
+            driverService.HideCommandPromptWindow = true;
+            driver = new ChromeDriver(driverService, chromeOptions);
+
+            string baseURL = "https://go.heb2b.com.mx/HEBusiness/https://go.heb2b.com.mx/HEBusiness/";
+            driver.Navigate().GoToUrl(baseURL);
+
+            Wait("Id", "Usuario");
+            driver.FindElement(By.Id("Usuario")).Clear();
+            driver.FindElement(By.Id("Usuario")).SendKeys(USER);
+            driver.FindElement(By.Id("Password")).Clear();
+            driver.FindElement(By.Id("Password")).SendKeys(PASS);
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("btnIngresarLogin")));
+            element.Click();
+
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"UserMenu\"]/div/nav/div[2]/ul/li[7]/a")));
+            element.Click();
+
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"UserMenu\"]/div/nav/div[2]/ul/li[7]/ul/li[1]/a")));
+            element.Click();
+
+            Wait("Id", "FechaInicial");
+            driver.FindElement(By.Id("FechaInicial")).Clear();
+            driver.FindElement(By.Id("FechaInicial")).SendKeys(FechaInicial.ToShortDateString());
+            driver.FindElement(By.Id("FechaFinal")).Clear();
+            driver.FindElement(By.Id("FechaFinal")).SendKeys(FechaFinal.ToShortDateString());
+
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            element = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("btnConsultarFacturasPorPagarConsultar")));
+            element.Click();
+
+            //---Preparando carpeta de descargas
+            string[] ArchivosANTES = TotalArchivosDownloads();
+
+            //---¿Cuantos resultados encontró?
+            Thread.Sleep(4000);
+            string Cantidad = driver.FindElement(By.Id("divConsultarBotones")).Text;//lblCantidadArticulos Se encontraron 2 resultados con los datos filtrados
+            Cantidad = objNuFox.StrExtract(Cantidad.ToString(), "Se encontraron ", " resultados con los datos filtrados").ToString();
+            if (Cantidad.ToString() != "0")
             {
-                var chromeOptions = new ChromeOptions();
-                chromeOptions.AddUserProfilePreference("download.default_directory", rutaDescarga);
-                chromeOptions.AddUserProfilePreference("download.prompt_for_download", false);
-                chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
-                var driverService = ChromeDriverService.CreateDefaultService();
-                driverService.HideCommandPromptWindow = true;
-                driver = new ChromeDriver(driverService, chromeOptions);
+                //---Click en Guardar
+                Wait("LinkText", "Exportar a hoja de cálculo");
+                Thread.Sleep(3000);
+                string[] ArchivosDESPUES = ArchivosANTES;
+                driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
+                Thread.Sleep(5000);
 
-                string baseURL = "https://go.heb2b.com.mx/HEBusiness/https://go.heb2b.com.mx/HEBusiness/";
-                driver.Navigate().GoToUrl(baseURL);
-
-                Wait("Id", "Usuario");
-                driver.FindElement(By.Id("Usuario")).Clear();
-                driver.FindElement(By.Id("Usuario")).SendKeys(USER);
-                driver.FindElement(By.Id("Password")).Clear();
-                driver.FindElement(By.Id("Password")).SendKeys(PASS);
-
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
-                IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("btnIngresarLogin")));
-                element.Click();
-
-                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
-                element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"UserMenu\"]/div/nav/div[2]/ul/li[7]/a")));
-                element.Click();
-
-                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
-                element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"UserMenu\"]/div/nav/div[2]/ul/li[7]/ul/li[1]/a")));
-                element.Click();
-
-                Wait("Id", "FechaInicial");
-                driver.FindElement(By.Id("FechaInicial")).Clear();
-                driver.FindElement(By.Id("FechaInicial")).SendKeys(FechaInicial.ToShortDateString());
-                driver.FindElement(By.Id("FechaFinal")).Clear();
-                driver.FindElement(By.Id("FechaFinal")).SendKeys(FechaFinal.ToShortDateString());
-
-                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
-                element = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("btnConsultarFacturasPorPagarConsultar")));
-                element.Click();
-
-                //---Preparando carpeta de descargas
-                string[] ArchivosANTES = TotalArchivosDownloads();
-
-                //---¿Cuantos resultados encontró?
-                Thread.Sleep(4000);
-                string Cantidad = driver.FindElement(By.Id("divConsultarBotones")).Text;//lblCantidadArticulos Se encontraron 2 resultados con los datos filtrados
-                Cantidad = objNuFox.StrExtract(Cantidad.ToString(), "Se encontraron ", " resultados con los datos filtrados").ToString();
-                if (Cantidad.ToString() != "0")
+                //---TIEMPO DE ESPERA---
+                //string[] ArchivosDESPUES = ArchivosANTES;
+                for (int w = 0; w < 40; w++)
                 {
-                    //---Click en Guardar
-                    Wait("LinkText", "Exportar a hoja de cálculo");
-                    Thread.Sleep(3000);
-                    string[] ArchivosDESPUES = ArchivosANTES;
-                    driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
-                    Thread.Sleep(5000);
-
-                    //---TIEMPO DE ESPERA---
-                    //string[] ArchivosDESPUES = ArchivosANTES;
-                    for (int w = 0; w < 40; w++)
-                    {
-                        Thread.Sleep(1000);
-                        ArchivosDESPUES = TotalArchivosDownloads();
-                        if (ArchivosDESPUES.Length != ArchivosANTES.Length)
-                            break;
-                        if (w == 20)
-                        {
-                            driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
-                        }
-                    }
-                    Thread.Sleep(10000);
-
-                    nombreCarpetaRaiz = @"\Estado de Cuenta" + DateTime.Now.ToString("ddMMyyy hhmmss");
-                    nombreArchivo = "Estado de Cuenta";
-
-                    NombreArchGuardado = GuardaExcelDescargado(nombreCarpetaRaiz, nombreArchivo, RutaCarpeta, rutaDescarga, ANTES);
-                    Nombre_Pestania = NombreArchGuardado;
-                    nombreArchivosIntegracion = NumArchXlsParaDescargar(NombreArchGuardado, RutaCarpeta + nombreCarpetaRaiz, Nombre_Pestania, "Documento", "Fecha de Pago", ref dtEdoCuenta);
-                    numIntegraciones = nombreArchivosDetalles.Length;
-
-
-                    String[] DESPUES = TotalArchivosDownloads(rutaDescarga);
-                    //num_Arch_Integracion = ArchivosIntegracionReales(RutaCarpeta + nombreCarpetaRaiz + @"\" + NombreArchGuardado + ".xls", NombreArchGuardado);
-                    String[] NamesArchivosIntegracionReales = ArchivosIntegracionReales(RutaCarpeta + nombreCarpetaRaiz + @"\" + NombreArchGuardado + ".xls", NombreArchGuardado);
-                    String[] NamesArchivosIntegracionRealesDuplicados = NamesArchivosIntegracionReales;
-                    string[] ANTES_Integracion = TotalArchivosDownloads(rutaDescarga);
-
-                    Thread.Sleep(5000);
-
-                    driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"]")).Click();
-                    new SelectElement(driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"]"))).SelectByText("Todos");
-                    driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"] > option[value=\"-1\"]")).Click();
-                    //indice3 = ;
-                    Thread.Sleep(5000);
-                    int posArchivo = 1, totalArchivos = NamesArchivosIntegracionReales.Length;
-                    for (int indice2 = 0; indice2 < NamesArchivosIntegracionReales.Length; indice2++)
-                    {
-                        ANTES = TotalArchivosDownloads(rutaDescarga);
-                        indice3 = indice2 + 1; ;
-
-                        for (int oportunidades = 0; oportunidades < 10; oportunidades++)
-                        {
-                            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(90));
-                            element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("(//a[contains(text(),'Integración')])[" + indice3.ToString() + "]")));
-                            element.Click();
-
-                            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(90));
-                            element = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("div.btn-group.open > ul.dropdown-menu > li > a")));
-                            element.Click();
-
-                            Thread.Sleep(5000);
-
-                            DESPUES = TotalArchivosDownloads(rutaDescarga);
-                            for (int w = 0; w < 20; w++)
-                            {
-                                DESPUES = TotalArchivosDownloads((rutaDescarga));
-                                if (ANTES.Length != DESPUES.Length)
-                                {
-                                    oportunidades = 10;
-                                    break;
-                                }
-                                Thread.Sleep(1000);
-                            }
-                        }
-
-                        nombreCarpetaIntegracion = @"\Archivos Integracion";
-                        AllNameArchIntegracion[ContadorIntegracion] = nombreArchivosIntegracion[indice2];
-                        ContadorIntegracion++;
-                        nombreArchivoIntegracion = nombreArchivosIntegracion[indice2];
-                        NombreArchGuardado = GuardaExcelDescargado(nombreCarpetaIntegracion, NamesArchivosIntegracionReales[indice2], RutaCarpeta + nombreCarpetaRaiz, rutaDescarga, ANTES_Integracion);
-                        NamesArchivosIntegracionRealesDuplicados[indice2] = NombreArchGuardado;
-
-                        posArchivo++;
-                    }
-                    ArchivosANTES = TotalArchivosDownloads();
                     Thread.Sleep(1000);
-                    driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
-                    Thread.Sleep(10000);
                     ArchivosDESPUES = TotalArchivosDownloads();
-                    //---Buscando archivo descargado
-                    string PathArchivo = NombreArchivoNuevo(ArchivosANTES, ArchivosDESPUES);
+                    if (ArchivosDESPUES.Length != ArchivosANTES.Length)
+                        break;
+                    if (w == 20)
+                    {
+                        driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
+                    }
+                }
+                Thread.Sleep(10000);
 
-                    driver.Navigate().GoToUrl(baseURL + "/HEBusiness/Login/CerrarSesion");
-                    //try {  }
-                    //catch { driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(180)); }
-                    driver.Quit();
+                nombreCarpetaRaiz = @"\Estado de Cuenta" + DateTime.Now.ToString("ddMMyyy hhmmss");
+                nombreArchivo = "Estado de Cuenta";
 
-                    string NombreArchivoNUEVO = "Consulta de compras del " + FechaInicial.ToString("dd MMM yyyy") + " al " + FechaFinal.ToString("dd MMM yyyy");
-                    string ArchivoDEscargado = MoverRenombrarArchivo(PathArchivo, rutaDescarga + @"\ConsultasHEB\", NombreArchivoNUEVO, ".xls");
+                NombreArchGuardado = GuardaExcelDescargado(nombreCarpetaRaiz, nombreArchivo, RutaCarpeta, rutaDescarga, ANTES);
+                Nombre_Pestania = NombreArchGuardado;
+                nombreArchivosIntegracion = NumArchXlsParaDescargar(NombreArchGuardado, RutaCarpeta + nombreCarpetaRaiz, Nombre_Pestania, "Documento", "Fecha de Pago", ref dtEdoCuenta);
+                numIntegraciones = nombreArchivosDetalles.Length;
 
 
-                    Thread.Sleep(1500);
+                String[] DESPUES = TotalArchivosDownloads(rutaDescarga);
+                //num_Arch_Integracion = ArchivosIntegracionReales(RutaCarpeta + nombreCarpetaRaiz + @"\" + NombreArchGuardado + ".xls", NombreArchGuardado);
+                String[] NamesArchivosIntegracionReales = ArchivosIntegracionReales(RutaCarpeta + nombreCarpetaRaiz + @"\" + NombreArchGuardado + ".xls", NombreArchGuardado);
+                String[] NamesArchivosIntegracionRealesDuplicados = NamesArchivosIntegracionReales;
+                string[] ANTES_Integracion = TotalArchivosDownloads(rutaDescarga);
 
+                Thread.Sleep(5000);
+
+                driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"]")).Click();
+                new SelectElement(driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"]"))).SelectByText("Todos");
+                driver.FindElement(By.CssSelector("#dtFacturas_wrapper_length_bottom > div.dataTables_length > select[name=\"dtFacturas_length\"] > option[value=\"-1\"]")).Click();
+                //indice3 = ;
+                Thread.Sleep(5000);
+                int posArchivo = 1, totalArchivos = NamesArchivosIntegracionReales.Length;
+                for (int indice2 = 0; indice2 < NamesArchivosIntegracionReales.Length; indice2++)
+                {
+                    ANTES = TotalArchivosDownloads(rutaDescarga);
+                    indice3 = indice2 + 1; ;
+
+                    for (int oportunidades = 0; oportunidades < 10; oportunidades++)
+                    {
+                        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(90));
+                        element = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("(//a[contains(text(),'Integración')])[" + indice3.ToString() + "]")));
+                        element.Click();
+
+                        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(90));
+                        element = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("div.btn-group.open > ul.dropdown-menu > li > a")));
+                        element.Click();
+
+                        Thread.Sleep(5000);
+
+                        DESPUES = TotalArchivosDownloads(rutaDescarga);
+                        for (int w = 0; w < 20; w++)
+                        {
+                            DESPUES = TotalArchivosDownloads((rutaDescarga));
+                            if (ANTES.Length != DESPUES.Length)
+                            {
+                                oportunidades = 10;
+                                break;
+                            }
+                            Thread.Sleep(1000);
+                        }
+                    }
 
                     nombreCarpetaIntegracion = @"\Archivos Integracion";
-                    LibroExcel = objNuExcel.AbrirArchivoNuevo(MiExcel);
-                    objNuExcel.ActivarArchivo(LibroExcel);
-                    //objNuExcel.CrearNuevaHoja(ArchivoTrabajoExcel);
-                    //int pos = objNuExcel.HojaTrabajoSolicitada(ArchivoTrabajoExcel, "HOJA");
-                    HojaExcel = objNuExcel.ActivarPestaniaExcel(1, MiExcel, LibroExcel);
-                    objNuExcel.PonerNombreHoja(HojaExcel, "Integraciones");
-                    string NombreAcumuladoIntegraciones = "Consulta de compras del " + FechaInicial.ToString("dd MMM yyyy") + " al " + FechaFinal.ToString("dd MMM yyyy");
-                    objNuExcel.ArchivoGuardarComo(LibroExcel, RutaCarpeta + nombreCarpetaRaiz + nombreCarpetaIntegracion + @"\" + NombreAcumuladoIntegraciones + ".xls");
+                    AllNameArchIntegracion[ContadorIntegracion] = nombreArchivosIntegracion[indice2];
+                    ContadorIntegracion++;
+                    nombreArchivoIntegracion = nombreArchivosIntegracion[indice2];
+                    NombreArchGuardado = GuardaExcelDescargado(nombreCarpetaIntegracion, NamesArchivosIntegracionReales[indice2], RutaCarpeta + nombreCarpetaRaiz, rutaDescarga, ANTES_Integracion);
+                    NamesArchivosIntegracionRealesDuplicados[indice2] = NombreArchGuardado;
 
-                    ConjuntaIntegraciones(nombreCarpetaIntegracion, NamesArchivosIntegracionRealesDuplicados, RutaCarpeta + nombreCarpetaRaiz, MiExcel, LibroExcel, HojaExcel, NombreAcumuladoIntegraciones);
-
+                    posArchivo++;
                 }
+                ArchivosANTES = TotalArchivosDownloads();
+                Thread.Sleep(1000);
+                driver.FindElements(By.LinkText("Exportar a hoja de cálculo"))[0].Click();
+                Thread.Sleep(10000);
+                ArchivosDESPUES = TotalArchivosDownloads();
+                //---Buscando archivo descargado
+                string PathArchivo = NombreArchivoNuevo(ArchivosANTES, ArchivosDESPUES);
+
+                driver.Navigate().GoToUrl(baseURL + "/HEBusiness/Login/CerrarSesion");
+                //try {  }
+                //catch { driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(180)); }
+                driver.Quit();
+
+                string NombreArchivoNUEVO = "Consulta de compras del " + FechaInicial.ToString("dd MMM yyyy") + " al " + FechaFinal.ToString("dd MMM yyyy");
+                string ArchivoDEscargado = MoverRenombrarArchivo(PathArchivo, rutaDescarga + @"\ConsultasHEB\", NombreArchivoNUEVO, ".xls");
+
+
+                Thread.Sleep(1500);
+
+
+                nombreCarpetaIntegracion = @"\Archivos Integracion";
+                LibroExcel = objNuExcel.AbrirArchivoNuevo(MiExcel);
+                objNuExcel.ActivarArchivo(LibroExcel);
+                //objNuExcel.CrearNuevaHoja(ArchivoTrabajoExcel);
+                //int pos = objNuExcel.HojaTrabajoSolicitada(ArchivoTrabajoExcel, "HOJA");
+                HojaExcel = objNuExcel.ActivarPestaniaExcel(1, MiExcel, LibroExcel);
+                objNuExcel.PonerNombreHoja(HojaExcel, "Integraciones");
+                string NombreAcumuladoIntegraciones = "Consulta de compras del " + FechaInicial.ToString("dd MMM yyyy") + " al " + FechaFinal.ToString("dd MMM yyyy");
+                objNuExcel.ArchivoGuardarComo(LibroExcel, RutaCarpeta + nombreCarpetaRaiz + nombreCarpetaIntegracion + @"\" + NombreAcumuladoIntegraciones + ".xls");
+
+                ConjuntaIntegraciones(nombreCarpetaIntegracion, NamesArchivosIntegracionRealesDuplicados, RutaCarpeta + nombreCarpetaRaiz, MiExcel, LibroExcel, HojaExcel, NombreAcumuladoIntegraciones);
 
             }
-            catch (Exception ex)
+            try
             {
-                try
-                {
-                    MiExcel.DisplayAlerts = true;
-                    MiExcel.Quit();
-                }
-                catch (Exception) { }
+                driver.Close();
+                driver.Quit();
             }
-            finally
-            {
-
-            }
+            catch { }
         }
 
         private void ConjuntaIntegraciones(string nombreCarpeta, String[] nombreArchivosIntegracion, string Ruta, Excel.Application MiExcel1, Excel.Workbook ArchTrabajo, Excel.Worksheet Hoja, string nombreExcel)

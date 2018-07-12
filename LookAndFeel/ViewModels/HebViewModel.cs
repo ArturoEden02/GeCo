@@ -119,7 +119,15 @@ namespace LookAndFeel.ViewModels
         public void BeginProcess()
         {
             Pruebas_clase7.Clases.HEB Proceso = new Pruebas_clase7.Clases.HEB();
-            Proceso.PortalHEB(usuario, contrasenia, FechaI, FechaF);
+            try
+            {
+                Proceso.PortalHEB(usuario, contrasenia, FechaI, FechaF);
+                MessageBox.Show("Proceso finalizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un problema,\n" + ex.Message);
+            }
         }
         #endregion
 
