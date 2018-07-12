@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using LookAndFeel.Views;
 using LookAndFeel.Vistas;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace LookAndFeel.ViewModels
 {
@@ -22,8 +24,12 @@ namespace LookAndFeel.ViewModels
             CreateOxxoCommand();
             CreateWalmartCommand();
             CreateCostcoCommand();
-
+            CreateFreskoCommand();
+            CreateCancelCommand();
         }
+
+        #region Commands
+
         #region Command Chedraui
         public ICommand Chedraui
         { get; internal set; }
@@ -59,7 +65,7 @@ namespace LookAndFeel.ViewModels
         private bool CanExecuteFreskoCommand()
         { return true; }
 
-        private void CreateComexCommand()
+        private void CreateFreskoCommand()
         { Fresko = new RelayCommand(FreskoProcess, CanExecuteFreskoCommand); }
 
         public void FreskoProcess()
@@ -148,6 +154,45 @@ namespace LookAndFeel.ViewModels
 
         public void CostcoProcess()
         { vwCostco che = new vwCostco(); che.ShowDialog(); }
+        #endregion
+
+        #region Command Comex
+        public ICommand Comex
+        { get; internal set; }
+
+        private bool CanExecuteComexCommand()
+        { return true; }
+
+        private void CreateComexCommand()
+        { Comex = new RelayCommand(ComexProcess, CanExecuteComexCommand); }
+
+        public void ComexProcess()
+        { vwComex che = new vwComex(); che.ShowDialog(); }
+        #endregion
+
+        #region Command Salir
+
+        public ICommand CancelCommand
+        {
+            get; internal set;
+        }
+
+        private bool CanExecuteCancelCommand()
+        {
+            return true;
+        }
+
+        private void CreateCancelCommand()
+        {
+            CancelCommand = new RelayCommand(CancelarCommand, CanExecuteCancelCommand);
+        }
+
+        public void CancelarCommand()
+        {
+            Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive).Close();
+        }
+        #endregion
+
         #endregion
 
     }

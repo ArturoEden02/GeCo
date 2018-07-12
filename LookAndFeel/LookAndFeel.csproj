@@ -228,7 +228,7 @@
     </Page>
     <Page Include="Views\vwComex.xaml">
       <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\vwCostco.xaml">
       <SubType>Designer</SubType>
@@ -317,6 +317,7 @@
     <Content Include="bin\Debug\GalaSoft.MvvmLight.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.pdb" />
+    <Resource Include="Picture\Comex.png" />
     <Resource Include="Picture\Costco.png" />
     <Resource Include="Gif\CDF.gif" />
     <Resource Include="Gif\Chedraui.gif" />
@@ -327,6 +328,7 @@
     <Resource Include="Gif\Oxxo.gif" />
     <Resource Include="Gif\Soriana-Comex.gif" />
     <Resource Include="Gif\Walmart.gif" />
+    <Resource Include="Gif\Comex.gif" />
     <Content Include="Media\Chedraui Login.mp4" />
     <Content Include="Media\Fragua Login.mp4" />
     <Content Include="Media\fresko login.mp4" />

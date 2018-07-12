@@ -268,5 +268,32 @@ namespace LookAndFeel.Vistas
                 Cos = false;
             }
         }
+
+        bool Com = false;
+        private void Comex_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (!Com)
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri("pack://application:,,,/Gif/Comex.gif");
+                image.EndInit();
+                ImageBehavior.SetAnimatedSource(Comex, image);
+                Com = true;
+            }
+        }
+
+        private void Comex_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (Com)
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri("pack://application:,,,/Picture/Comex.png");
+                image.EndInit();
+                ImageBehavior.SetAnimatedSource(Comex, image);
+                Com = false;
+            }
+        }
     }
 }

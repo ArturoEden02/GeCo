@@ -1,5 +1,4 @@
-﻿using LookAndFeel.Conexiones;
-using LookAndFeel.ViewModels;
+﻿using LookAndFeel.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LookAndFeel.Vistas
+namespace LookAndFeel.Views
 {
     /// <summary>
-    /// Lógica de interacción para vwComex.xaml
+    /// Interaction logic for vwComex.xaml
     /// </summary>
     public partial class vwComex : Window
     {
         public vwComex()
         {
             InitializeComponent();
-            DataContext = new ComexViewModel();
+            this.DataContext = new ComexViewModel();
         }
 
         private void header_MouseDown(object sender, MouseButtonEventArgs e)
