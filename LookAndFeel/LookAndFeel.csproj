@@ -309,16 +309,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Picture\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="bin\Debug\chromedriver.exe" />
     <Content Include="bin\Debug\CommonServiceLocator.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.pdb" />
-    <Resource Include="Picture\Comex.png" />
-    <Resource Include="Picture\Costco.png" />
+    <Resource Include="Picture\CDF.png" />
+    <Resource Include="Picture\chedraui.png" />
+    <Resource Include="Picture\comex.png" />
+    <Resource Include="Picture\costco.png" />
+    <Resource Include="Picture\fragua.png" />
+    <Resource Include="Picture\fresko.png" />
+    <Resource Include="Picture\heb.png" />
+    <Resource Include="Picture\oxxo.png" />
+    <Resource Include="Picture\soriana.png" />
+    <Resource Include="Picture\walmart.png" />
     <Resource Include="Gif\CDF.gif" />
     <Resource Include="Gif\Chedraui.gif" />
     <Resource Include="Gif\Costco.gif" />
@@ -337,14 +342,6 @@
     <Content Include="Media\Login HEB.mp4" />
     <Content Include="Media\Oxxo Login.mp4" />
     <Content Include="Media\Walmart Login.mp4" />
-    <Resource Include="Picture\CDF.jpg" />
-    <Resource Include="Picture\Chedraui.jpg" />
-    <Resource Include="Picture\Fragua.jpg" />
-    <Resource Include="Picture\Fresko.jpg" />
-    <Resource Include="Picture\Heb.jpg" />
-    <Resource Include="Picture\Oxxo.jpg" />
-    <Resource Include="Picture\Soriana.jpg" />
-    <Resource Include="Picture\Wallmart.jpg" />
     <Resource Include="bin\Debug\GalaSoft.MvvmLight.Extras.xml" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.pdb" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.dll" />

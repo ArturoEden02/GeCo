@@ -1,21 +1,9 @@
-﻿using LookAndFeel.Conexiones;
-using LookAndFeel.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LookAndFeel.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media.Effects;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using WpfAnimatedGif;
 
 namespace LookAndFeel.Vistas
 {
@@ -36,264 +24,349 @@ namespace LookAndFeel.Vistas
         bool CDF = false;
         private void imgCDF_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!CDF)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/CDF.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgCDF, image);
-                CDF = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void imgCDF_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (CDF)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/CDF.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgCDF, image);
-                CDF = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool ched = false;
         private void imgChedraui_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (ched)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Chedraui.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgChedraui, image);
-                ched = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void imgChedraui_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!ched)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Chedraui.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgChedraui, image);
-                ched = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool wal = false;
         private void Walmart_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!wal)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Walmart.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Walmart, image);
-                wal = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void Walmart_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (wal)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Wallmart.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Walmart, image);
-                wal = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool sori = false;
         private void Soriana_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!sori)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Soriana-Comex.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Soriana, image);
-                sori = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void Soriana_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (sori)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Soriana.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Soriana, image);
-                sori = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool oxx = false;
         private void oxxo_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!oxx)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Oxxo.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(oxxo, image);
-                oxx = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void oxxo_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (oxx)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Oxxo.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(oxxo, image);
-                oxx = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool he = false;
         private void imgHeb_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!he)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/HEB.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgHeb, image);
-                he = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void imgHeb_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (he)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/HEB.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(imgHeb, image);
-                he = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool fres = false;
         private void ImgFresko_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!fres)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Fresko.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(ImgFresko, image);
-                fres = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void ImgFresko_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (fres)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Fresko.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(ImgFresko, image);
-                fres = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
+
         bool Frag = false;
         private void Fragua_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!Frag)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Fragua.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Fragua, image);
-                Frag = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void Fragua_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Frag)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Fragua.jpg");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Fragua, image);
-                Frag = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
 
         bool Cos = false;
         private void Costco_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!Cos)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Costco.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Costco, image);
-                Cos = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void Costco_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Cos)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Costco.png");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Costco, image);
-                Cos = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
         }
 
         bool Com = false;
         private void Comex_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (!Com)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Gif/Comex.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Comex, image);
-                Com = true;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScR = 0;
+            color.ScG = 0;
+            color.ScB = 0;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = 1;
+            myButton.BitmapEffect = mydrop;
         }
-
         private void Comex_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Com)
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri("pack://application:,,,/Picture/Comex.png");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(Comex, image);
-                Com = false;
-            }
+            Image myButton = sender as Image;
+            DropShadowBitmapEffect mydrop = new DropShadowBitmapEffect();
+            Color color = new Color();
+            color.ScA = 1;
+            color.ScR = 255;
+            color.ScG = 255;
+            color.ScB = 255;
+            mydrop.Color = color;
+            mydrop.Direction = 200;
+            mydrop.ShadowDepth = 20;
+            mydrop.Softness = 10;
+            mydrop.Opacity = .5;
+            myButton.BitmapEffect = mydrop;
+        }
+
+        private void btnCancelar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+            mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E81123"));
+            Button btn = sender as Button;
+            btn.Background = mySolidColorBrush;
+            btn.BorderBrush = mySolidColorBrush;
+        }
+
+        private void btnCancelar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+            mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#004790"));
+            Button btn = sender as Button;
+            btn.Background = mySolidColorBrush;
+            btn.BorderBrush = mySolidColorBrush;
         }
     }
 }
