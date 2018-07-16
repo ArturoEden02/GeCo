@@ -80,7 +80,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/CDF.png" x:Name="imgCDF" MouseEnter="imgCDF_MouseEnter" MouseLeave="imgCDF_MouseLeave" Margin="0"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/CDF.png" x:Name="imgCDF" MouseEnter="MouseEnter" MouseLeave="MouseLeave" Margin="0"/>
                         </Button>
                         <Button Command="{Binding Chedraui}"  BorderThickness="0" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Chedraui">
                             <Button.Style>
@@ -102,7 +102,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/chedraui.png" Margin="0" x:Name="imgChedraui"  MouseEnter="imgChedraui_MouseEnter" MouseLeave="imgChedraui_MouseLeave" />
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/chedraui.png" Margin="0" x:Name="imgChedraui"  MouseEnter="MouseEnter" MouseLeave="MouseLeave" />
                         </Button>
                         <Button Command="{Binding Fragua}"  BorderThickness="0" Grid.Row="2" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Fragua">
                             <Button.Style>
@@ -124,7 +124,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/fragua.png" Margin="0" x:Name="Fragua"  MouseEnter="Fragua_MouseEnter" MouseLeave="Fragua_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/fragua.png" Margin="0" x:Name="Fragua"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button Command="{Binding Fresko}"  BorderThickness="0" Grid.Row="0" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Fresko">
                             <Button.Style>
@@ -146,7 +146,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/fresko.png" Margin="0" x:Name="ImgFresko"  MouseEnter="ImgFresko_MouseEnter" MouseLeave="ImgFresko_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/fresko.png" Margin="0" x:Name="ImgFresko"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button Command="{Binding HEB}"  BorderThickness="0" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de HEB">
                             <Button.Style>
@@ -168,7 +168,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/heb.png" Margin="0" x:Name="imgHeb"  MouseEnter="imgHeb_MouseEnter" MouseLeave="imgHeb_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/heb.png" Margin="0" x:Name="imgHeb"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button Command="{Binding Oxxo}"  BorderThickness="0" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Oxxo">
                             <Button.Style>
@@ -190,7 +190,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/oxxo.png" Margin="0" x:Name="oxxo"  MouseEnter="oxxo_MouseEnter" MouseLeave="oxxo_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/oxxo.png" Margin="0" x:Name="oxxo"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button Command="{Binding ComeXSoriana}"  BorderThickness="0" Grid.Row="0" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Soriana">
                             <Button.Style>
@@ -212,7 +212,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/soriana.png" Margin="0" x:Name="Soriana"  MouseEnter="Soriana_MouseEnter" MouseLeave="Soriana_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/soriana.png" Margin="0" x:Name="Soriana"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button Command="{Binding Walmart}"  BorderThickness="0" Grid.Row="1" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Walmart">
                             <Button.Style>
@@ -234,7 +234,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/walmart.png" Margin="0" x:Name="Walmart"  MouseEnter="Walmart_MouseEnter" MouseLeave="Walmart_MouseLeave" />
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/walmart.png" Margin="0" x:Name="Walmart"  MouseEnter="MouseEnter" MouseLeave="MouseLeave" />
                         </Button>
                         <Button Command="{Binding Costco}"  BorderThickness="0" Grid.Row="2" Grid.Column="2" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Costco">
                             <Button.Style>
@@ -256,7 +256,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/costco.png" x:Name="Costco" Margin="0" MouseEnter="Costco_MouseEnter" MouseLeave="Costco_MouseLeave" />
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/costco.png" x:Name="Costco" Margin="0" MouseEnter="MouseEnter" MouseLeave="MouseLeave" />
                         </Button>
                         <Button Command="{Binding Comex}" BorderThickness="0" Grid.Row="3" Grid.Column="0" Margin="10,10,10,10" Background="{x:Null}" ToolTip="Portal Financiero de Comex">
                             <Button.Style>
@@ -278,7 +278,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/comex.png" Margin="0" x:Name="Comex"  MouseEnter="Comex_MouseEnter" MouseLeave="Comex_MouseLeave"/>
+                            <Image gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="pack://application:,,,/Picture/comex.png" Margin="0" x:Name="Comex"  MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
                         </Button>
                         <Button  Grid.Row="3" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Presione para cerrar el programa" x:Name="btnCancelar" Margin="40,60,40,10" Height="Auto" Content="Cerrar" Command="{Binding CancelCommand}"
                                  MouseEnter="btnCancelar_MouseEnter" MouseLeave="btnCancelar_MouseLeave"/>

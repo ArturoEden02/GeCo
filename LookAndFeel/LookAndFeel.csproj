@@ -324,16 +324,6 @@
     <Resource Include="Picture\oxxo.png" />
     <Resource Include="Picture\soriana.png" />
     <Resource Include="Picture\walmart.png" />
-    <Resource Include="Gif\CDF.gif" />
-    <Resource Include="Gif\Chedraui.gif" />
-    <Resource Include="Gif\Costco.gif" />
-    <Resource Include="Gif\Fragua.gif" />
-    <Resource Include="Gif\Fresko.gif" />
-    <Resource Include="Gif\HEB.gif" />
-    <Resource Include="Gif\Oxxo.gif" />
-    <Resource Include="Gif\Soriana-Comex.gif" />
-    <Resource Include="Gif\Walmart.gif" />
-    <Resource Include="Gif\Comex.gif" />
     <Content Include="Media\Chedraui Login.mp4" />
     <Content Include="Media\Fragua Login.mp4" />
     <Content Include="Media\fresko login.mp4" />
