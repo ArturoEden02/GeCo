@@ -107,7 +107,9 @@
                 IWebElement element = wait.Until(ExpectedConditions.ElementExists(By.Id("btnSearch")));
                 element.Click();
                 wait = new WebDriverWait(web, TimeSpan.FromSeconds(10));
-                element = wait.Until(ExpectedConditions.ElementExists(By.Id("tb_grid")));
+                wait.Until(ExpectedConditions.ElementExists(By.Id("tb_grid")));
+                Thread.Sleep(1500);
+                element = web.FindElement(By.Id("tb_grid"));
                 string texto = "";
                 char[] delimiterChars = { '\r', '\n' };
                 string[] lineas = new string[100];
